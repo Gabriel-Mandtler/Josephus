@@ -3,7 +3,7 @@ public class Main
 {   
    public static void main(String[] args)
    {
-      int participants = 800;
+      int participants = 10;
       int steps = 77;
 
       JosephusGame circle = new JosephusGame();
