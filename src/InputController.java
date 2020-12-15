@@ -10,35 +10,22 @@ public class InputController
     {
     }
 
-    public int[] userInput() throws IOException
+    public int userInput(String showMessage, int maxValue) throws IOException
     {
         String userInput = "";
-        int[] returnValue = new int[3];
+        int userInputAsInt;
 
         while(true)
         {
-            System.out.println("Please input valid number between 1 and 1000 (participants)...");
+            System.out.println(showMessage);
             userInput = input.readLine();
             if(userInput.matches("^\\d+$"))
             {
-                System.out.println("Please input a valid number between 1 and 100 (steps)...");
-                returnValue[0] = Integer.parseInt(userInput);
-                userInput = input.readLine();
-                if(userInput.matches("^\\d+$"))
-                {
-                    System.out.println("Please input a valid number between 1 and 10000 (shooting interval in milliseconds)...");
-                    returnValue[1] = Integer.parseInt(userInput);
-                    userInput = input.readLine();
-                    if(userInput.matches("^\\d+$"))
-                    {
-                        returnValue[2] = Integer.parseInt(userInput);
-                        if(returnValue[0] > 0 && returnValue[0] < 1001 && returnValue[1] > 0 
-                        && returnValue[1] < 101 && returnValue[2] > 0 && returnValue[2] < 10001) break;
-                        else continue;
-                    }                    
-                }
-            }            
+                userInputAsInt = Integer.parseInt(userInput);
+                if(userInputAsInt > 0 && userInputAsInt <= maxValue) break;
+                else continue;
+            } 
         }
-        return returnValue;
+        return userInputAsInt;
     }
 }

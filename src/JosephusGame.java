@@ -43,7 +43,6 @@ public class JosephusGame
                         {
                             tail=currentNode;
                             tail.nextNode = head;
-
                         } 
                         currentNode.nextNode = nextNode.nextNode;
                         break;
@@ -85,7 +84,9 @@ public class JosephusGame
     }
 
 
-    // ******************************************************************************************************    
+    // *******************************************************************************************************
+    // Recursive function for testing
+
     public int josephusRecursive(int n, int k) 
     {
         return n > 1 ? (josephusRecursive(n-1, k) + k - 1) % n + 1 : 1;
