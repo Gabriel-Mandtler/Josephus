@@ -1,18 +1,19 @@
-import java.util.*;
-public class Main
+import java.io.IOException;
+
+public class Main 
 {   
-   public static void main(String[] args)
+   public static void main(String[] args) throws IOException, InterruptedException
    {
-      int participants = 10;
-      int steps = 77;
+      new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
       JosephusGame circle = new JosephusGame();
+      InputController inputController = new InputController();
+
+      int[] userInput = inputController.userInput();
   
-      for(int i = 0; i<participants; i++)
-      {
-         circle.addNode(i+1);
-      } 
+      for(int i = 0; i < userInput[0]; i++) circle.addNode(i+1); 
         
-      circle.showNthPerson(steps);      
+      circle.showNthPerson(userInput[1], userInput[2]);  
+      
    }
 }

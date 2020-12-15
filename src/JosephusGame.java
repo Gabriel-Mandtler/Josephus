@@ -1,4 +1,3 @@
-import java.util.*;
 public class JosephusGame
 {   
     private Node head = null;
@@ -19,6 +18,7 @@ public class JosephusGame
         tail = newNode;
         tail.nextNode = head;
     }
+
 
     public void deleteNode(int valueToDelete) 
     {
@@ -55,9 +55,8 @@ public class JosephusGame
         }
     }
 
-    
 
-    public void showNthPerson(int eachNode) 
+    public void showNthPerson(int eachNode, int shootingInterval) throws InterruptedException 
     {
         Node currentNode = tail;       
 
@@ -65,10 +64,12 @@ public class JosephusGame
         {
             while(true) 
             {
+                Thread.sleep(shootingInterval);
+
                 for (int j = 0; j < eachNode; j++) currentNode = currentNode.nextNode;     
 
                 System.out.println("     _,_______");
-                System.out.println("    / _==_____() o  o  o   " +currentNode.value);
+                System.out.println("    / _==_____() o  o  o   " + currentNode.value);
                 System.out.println("   /##(_)-'");
                 System.out.println("  /##/");
                 System.out.println("  '''");
@@ -82,6 +83,14 @@ public class JosephusGame
         System.out.println("               Last Man Standing: " + head.value);
         System.out.println("**************************************************");
     }
+
+
+    // ******************************************************************************************************    
+    public int josephusRecursive(int n, int k) 
+    {
+        return n > 1 ? (josephusRecursive(n-1, k) + k - 1) % n + 1 : 1;
+    }    
+    // *******************************************************************************************************
 
 }
 
