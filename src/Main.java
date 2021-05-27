@@ -8,7 +8,7 @@ public class Main
       System.out.println("HAI");
       JosephusGame circle = new JosephusGame();
       InputController inputController = new InputController();
-
+      System.out.println("HAI");
       int participants = inputController.userInput("Participants (any integer between 1 and 1000): ", 1000);
   
       for(int i = 0; i < participants; i++) circle.addNode(i+1); 
