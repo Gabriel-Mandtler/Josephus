@@ -14,7 +14,7 @@ public class InputController
     {
         String userInput = "";
         int userInputAsInt;
-
+    
         while(true)
         {
             System.out.println(showMessage);

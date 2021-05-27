@@ -15,6 +15,6 @@ public class Main
         
       circle.showNthPerson(inputController.userInput("Steps (any integer between 1 and 100: ", 100), 
          inputController.userInput("Shooting interval in milliseconds (any number between 1 and 1000: ", 1000)); 
-      
+      System.out.println("HAI");
    }
 }
